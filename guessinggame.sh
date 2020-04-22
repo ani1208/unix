@@ -3,12 +3,15 @@
 function guess {
 	
 	check=0	
-	x=$(ls -1 | wc -l)
+	x=$(ls -a | wc -l)
 	while [[ $check -eq 0 ]]
 	do
 	   echo "Guess the number of files in directory:"
 	   read response
-	   if [[ $response == $x ]]
+	   if ! [[ $response =~ ^[0-9]+$ ]] 
+	   then 
+	      echo "Please enter a valid number!"
+	   elif [[ $response == $x ]]
 	   then
 	      echo "Correct Guess!"
 	      check=1
