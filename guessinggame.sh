@@ -3,7 +3,7 @@
 function guess {
 	
 	check=0	
-	x=$(ls -a | wc -l)
+	x=$(ls -al | grep ^[-] | wc -l)
 	while [[ $check -eq 0 ]]
 	do
 	   echo "Guess the number of files in directory:"
